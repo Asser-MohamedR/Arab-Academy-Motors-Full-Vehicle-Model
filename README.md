@@ -17,28 +17,26 @@ The mathematical model captures the spatial dynamics of the vehicle by allocatin
 To complete the full vehicle model and ensure highly realistic dynamic responses, the following subsystems were developed from scratch and integrated into the primary 14 DoF architecture:
 
 * **Custom Powertrain Model:** Developed to provide realistic longitudinal torque inputs to the driven wheels. This subsystem interfaces directly with the wheel spin degrees of freedom, ensuring accurate acceleration and engine braking dynamics without relying on generic Simulink powertrain blocks.
-* **Pacejka Magic Formula Tire Data Fitting:** To accurately capture the highly non-linear nature of tire-road interactions, a custom tire model was implemented. Raw tire data was computationally processed and fitted to extract the four core coefficients of the Pacejka Magic Formula. This approach ensured that the lateral and longitudinal tire forces—critical inputs to the sprung mass equations—were highly representative of real-world tire behavior. *(Note: See `[insert filename.png]` for the data fitting curve).*
+* **Pacejka Magic Formula Tire Data Fitting:** To accurately capture the highly non-linear nature of tire-road interactions, a custom tire model was implemented. Raw tire data was computationally processed and fitted to extract the four core coefficients of the Pacejka Magic Formula. This approach ensured that the lateral and longitudinal tire forces—critical inputs to the sprung mass equations—were highly representative of real-world tire behavior. *(Note: See `[tire data.PNG]` for the data fitting curve).*
 
 ## 4. Simulink System Architecture
 The model is designed with a strong emphasis on modularity and code readability, preventing algebraic loops and managing the stiff dynamics inherent to vehicle suspension and tire relaxation systems. 
 
 Key subsystems include:
-* **Steering Mechanism:** Converts driver steering wheel inputs into independent front-right and front-left tire steer angles using Ackerman geometry principles[cite: 210].
-* **Tire Model:** Calculates transient forces based on the custom-fitted Pacejka equations[cite: 219].
-* **Body Kinematics:** Computes the 6 DoF state variables of the sprung mass using external and inertial forces[cite: 308].
-* **Wheel Spin:** Determines the rotational dynamics of each corner based on powertrain torque and longitudinal tire friction[cite: 325, 326].
+* **Steering Mechanism:** Converts driver steering wheel inputs into independent front-right and front-left tire steer angles using Ackerman geometry principles.
+* **Tire Model:** Calculates transient forces based on the custom-fitted Pacejka equations.
+* **Body Kinematics:** Computes the 6 DoF state variables of the sprung mass using external and inertial forces.
+* **Wheel Spin:** Determines the rotational dynamics of each corner based on powertrain torque and longitudinal tire friction.
 
 ## 5. Prerequisites and Execution
 To run this simulation, you will need:
-* MATLAB & Simulink (Version `[Insert Version, e.g., R2022b]` or newer).
+* MATLAB & Simulink (Version `[R2019a]` or newer).
 * No additional specialized toolboxes are required.
 
 **How to Run and Configure:**
 1. Open MATLAB and navigate to the repository directory.
-2. Open the primary Simulink model `[insert model name, e.g., FullVehicleModel.slx]`.
+2. Open the primary Simulink model `[Vehicle_Model_14DOF.slx]`.
 3. **Configure Parameters:** The model is designed with a highly integrated, user-friendly masked interface. Simply double-click the main vehicle subsystem block to open the parameter mask. From this dialog box, you can directly view and edit all physical vehicle data (e.g., sprung mass, moments of inertia, suspension stiffness, and geometric dimensions) without needing to run external initialization scripts.
 4. Click **Run** to execute the simulation. 
-5. Standard scopes are pre-configured within the model to output key dynamic responses such as Yaw Rate, Lateral Acceleration, and Roll Angle over time.
+5. Standard scopes are pre-configured within the model to output key dynamic responses.
 
-## References
-* Ibrahim, M. S., Abdelaziz, M., Elmarhoomy, A., & Ghoniema, M. (2018). *A 14 DEGREES OF FREEDOM VEHICLE DYNAMICS MODEL TO PREDICT THE BEHAVIOR OF A GOLF CAR*. Proceedings of the 18th Int. [cite_start]AMME Conference[cite: 7, 8].
