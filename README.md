@@ -5,7 +5,7 @@
 ## 1. Project Overview
 This repository contains a robust, modular 14 Degree of Freedom (DoF) full vehicle handling dynamics model implemented in MATLAB/Simulink. The core kinematics and governing differential equations are adapted from the mathematical framework detailed in Ghike, C., & Shim, T. (2006). 14 Degree-of-Freedom Vehicle Model for Roll Dynamics study. SAE Technical Papers on CD-ROM/SAE Technical Paper Series, 1. https://doi.org/10.4271/2006-01-1277 . 
 
-While the theoretical foundation of the vehicle body dynamics relies on established literature[cite: 164, 328], the primary engineering contribution of this project is the translation of these complex, coupled systems into a solver-efficient computational environment. Additionally, a custom powertrain subsystem and a data-fitted Pacejka tire model were developed independently to complete the vehicle architecture. This model was utilized by our engineering team to simulate vehicle behavior and transient responses under various dynamic steering conditions.
+While the theoretical foundation of the vehicle body dynamics relies on established literature, the primary engineering contribution of this project is the translation of these complex, coupled systems into a solver-efficient computational environment. Additionally, a custom powertrain subsystem and a data-fitted Pacejka tire model were developed independently to complete the vehicle architecture. This model was utilized by our engineering team to simulate vehicle behavior and transient responses under various dynamic steering conditions.
 
 ## 2. Mathematical Framework
 The mathematical model captures the spatial dynamics of the vehicle by allocating the 14 degrees of freedom into two main categories:
